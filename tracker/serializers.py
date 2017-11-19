@@ -20,9 +20,9 @@ class TomatoSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-    countdown = serializers.HyperlinkedRelatedField(many=True, view_name='countdown-detail', read_only=True)
-    tomato = serializers.HyperlinkedRelatedField(many=True, view_name='tomato-detail', read_only=True)
+    countdowns = serializers.HyperlinkedRelatedField(many=True, view_name='countdown-detail', read_only=True)
+    tomatoes = serializers.HyperlinkedRelatedField(many=True, view_name='tomato-detail', read_only=True)
 
     class Meta:
         model = User
-        fields = ('url', 'id', 'username', 'countdown', 'tomato',)
+        fields = ('url', 'id', 'username', 'countdowns', 'tomatoes',)

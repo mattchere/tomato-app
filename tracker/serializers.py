@@ -4,7 +4,7 @@ from rest_framework import serializers
 
 
 class CountdownSerializer(serializers.HyperlinkedModelSerializer):
-    user = serializers.ReadOnlyField(source='user.username')
+    user = serializers.HyperlinkedRelatedField(view_name='user-detail', read_only=True)
 
     class Meta:
         model = Countdown
@@ -12,7 +12,7 @@ class CountdownSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class TomatoSerializer(serializers.HyperlinkedModelSerializer):
-    user = serializers.ReadOnlyField(source='user.username')
+    user = serializers.HyperlinkedRelatedField(view_name='user-detail', read_only=True)
 
     class Meta:
         model = Tomato

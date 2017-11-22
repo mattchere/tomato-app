@@ -1,10 +1,23 @@
 from tracker.models import Countdown, Tomato
 from tracker.serializers import CountdownSerializer, TomatoSerializer, UserSerializer
 from tracker.permissions import IsUser, IsUserAccount
+from django.urls import reverse
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 from rest_framework import permissions, viewsets, mixins
 from rest_framework.response import Response
+
+
+def index(request):
+    if request.user.is_authenticated:
+        return redirect(reverse('tracker'))
+    return render(request, 'index.html')
+
+@login_required
+def tracker(request):
+    return render(request, 'tracker/tracker.html')
 
 class CountdownViewSet(viewsets.ModelViewSet):
     """

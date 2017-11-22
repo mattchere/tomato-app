@@ -1,0 +1,18 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+
+  <header class="header">
+    <h1>Pomodoro Clock</h1>
+  </header>
+
+  <section class="main">
+    <div class="timer">
+        <p class="no-select">25:00</p>
+    </div>
+  </section>
+
+{% load static %}
+<script src="{% static 'js/tracker.js' %}"></script>
+
+{% endblock %}

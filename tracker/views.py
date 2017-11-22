@@ -19,6 +19,10 @@ def index(request):
 def tracker(request):
     return render(request, 'tracker/tracker.html')
 
+@login_required
+def countdown(request):
+    return render(request, 'tracker/countdown.html')
+
 class CountdownViewSet(viewsets.ModelViewSet):
     """
     Allows for `list`, `create`, `retrieve`, `update`,
@@ -30,7 +34,8 @@ class CountdownViewSet(viewsets.ModelViewSet):
                           IsUser)
 
     def get_queryset(self):
-        return self.queryset.order_by('due')
+        return self.queryset.filter(user__exact=self.request.user) \
+                            .order_by('due')
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
@@ -48,6 +53,9 @@ class TomatoViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
+    def get_queryset(self):
+        return Tomato.objects.filter(user__exact=self.request.user)
 
 
 class UserViewSet(mixins.RetrieveModelMixin,

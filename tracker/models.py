@@ -14,7 +14,7 @@ class Countdown(models.Model):
 class Tomato(models.Model):
     task = models.CharField(max_length=50, blank=True)
     duration = models.DurationField(default=timedelta(minutes=25))
-    completed = models.DateField(default=timezone.now)
+    completed = models.DateTimeField(default=timezone.now)
     user = models.ForeignKey('auth.User', related_name='tomatoes', on_delete=models.CASCADE)
 
     def __str__(self):

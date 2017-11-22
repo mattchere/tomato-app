@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var tomatoTime = 25;
+  var tomatoTime = 1;
   var breakTime = 5;
   var currMin = tomatoTime;
   var currSec = 0;
@@ -57,12 +57,24 @@ $(document).ready(function() {
   function changeTimer(min, sec) {
     if (tomato) {
       tomato = false;
+
+      addTomato();
+
       return [breakTime-1, 59];
     }
     else {
-      addTomato();
       tomato = true;
       return [tomatoTime-1, 59];
+    }
+  }
+
+  /**
+   * Returns a JavaScript object used to post data to the
+   * server when creating a tomato.
+   */
+  function createTomato() {
+    return {
+      task: ''
     }
   }
 
@@ -97,5 +109,42 @@ $(document).ready(function() {
     }
   });
 
+  function addTomato() {
+    // using jQuery
+    function getCookie(name) {
+      var cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+          var cookies = document.cookie.split(';');
+          for (var i = 0; i < cookies.length; i++) {
+              var cookie = jQuery.trim(cookies[i]);
+              // Does this cookie string begin with the name we want?
+              if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                  break;
+              }
+          }
+      }
+      return cookieValue;
+    }
+    var csrftoken = getCookie('csrftoken');
+
+    function csrfSafeMethod(method) {
+      // these HTTP methods do not require CSRF protection
+      return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });
+
+    $.ajax({
+      type: 'POST',
+      url: '/api/v1/tomatoes/', 
+      data: createTomato()
+    });
+  }
 
 });

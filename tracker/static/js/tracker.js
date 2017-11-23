@@ -1,8 +1,8 @@
 $(document).ready(function() {
-  var tomatoTime = 0;
+  var tomatoTime = 25;
   var breakTime = 5;
   var currMin = tomatoTime;
-  var currSec = 1;
+  var currSec = 0;
   var tomato = true;
   var pause = true;
   var interval;

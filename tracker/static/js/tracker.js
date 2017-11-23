@@ -109,7 +109,7 @@ $(document).ready(function() {
     }
   });
 
-  function addTomato() {
+  function setCSRFToken() {
     // using jQuery
     function getCookie(name) {
       var cookieValue = null;
@@ -139,7 +139,10 @@ $(document).ready(function() {
             }
         }
     });
+  }
 
+  function addTomato() {
+    setCSRFToken();
     $.ajax({
       type: 'POST',
       url: '/api/v1/tomatoes/', 

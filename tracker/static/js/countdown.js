@@ -11,11 +11,11 @@ $(document).ready(function() {
           splitDate[2]
         );
         $('.countdown-list').append(
-          '<p class="countdown-item">' +
+          '<li class="countdown-item">' +
           countdown.title +
           ' ' +
           daysUntil(dateDue) +
-          '</p>'
+          '</li>'
         )
       })
     }

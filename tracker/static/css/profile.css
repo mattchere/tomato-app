@@ -1,0 +1,72 @@
+td {
+  border: 2px solid black;
+}
+
+
+.profile-main {
+  margin: 0 auto;
+  width: 80%;
+}
+.month-head {
+  padding: 50px;
+}
+.month-title {
+  text-align: center;
+}
+
+.month-cell {
+  height: 75px;
+  width: 100px;
+}
+.date {
+  border-bottom: 2px solid black;
+}
+
+.prev-cell,
+.month-head {
+  border-right: none;
+}
+.next-cell,
+.month-head {
+  border-left: none;
+}
+.day {
+  padding: 5px;
+}
+.change-month:hover {
+  cursor: pointer;
+}
+.tomato-container {
+  padding-top: 20px;
+}
+
+.shaded {
+  background-color: lightgrey;
+}
+.shaded .date {
+  border: none;
+}
+
+
+/*
+  Typography
+*/
+
+.day-text,
+.date-text {
+  font-size: 20px;
+}
+.day-text {
+  text-align: center;
+}
+.date-text {
+  text-align: right;
+}
+.change-month {
+  text-align: center;
+  font-size: 30px;
+}
+.tomato-count {
+  font-size: 30px;
+  text-align: center;
+}

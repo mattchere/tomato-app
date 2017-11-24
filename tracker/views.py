@@ -23,6 +23,10 @@ def tracker(request):
 def countdown(request):
     return render(request, 'tracker/countdown.html')
 
+@login_required
+def profile(request):
+    return render(request, 'tracker/profile.html')
+
 class CountdownViewSet(viewsets.ModelViewSet):
     """
     Allows for `list`, `create`, `retrieve`, `update`,

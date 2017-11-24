@@ -34,21 +34,9 @@ body {
     margin: 20px auto;
   }
   
-  .minus,
-  .plus,
-  .break-len,
-  .pomo-len,
-  .break-time,
-  .pomo-time {
+  .schedule-container {
     display: inline-block;
-    margin-top: 10px;
-  }
-  
-  .break-time,
-  .pomo-time {
-    padding: 20px 0;
-    text-align: center;
-    width: 200px;
+    width: 50px;
   }
   
   .timer:hover {

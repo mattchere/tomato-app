@@ -6,6 +6,13 @@
     <h1>Pomodoro Clock</h1>
   </header>
 
+  <div class="schedule-container">
+    <div class="schedule">
+      <div class="schedule-time">1</div>
+    </div>
+    <input class="schedule-add" type="number" value="1" min="1" max="120" step="1">
+  </div>
+
   <section class="main">
     <div class="timer">
         <p class="no-select">25:00</p>
@@ -19,6 +26,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
   {% load static %}
-  <script src="{% static 'js/tracker.js' %}"></script>
+  <script src="{% static 'js/tracker-new.js' %}"></script>
 
 {% endblock %}

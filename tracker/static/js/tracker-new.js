@@ -3,12 +3,13 @@ $(document).ready(function() {
   var pausedSecs = 0;
   var tomatoTime = 25;
   var breakTime = 5;
+  var longBreakTime = 30;
   var tomatoSet = 4;
   var elapsed = 0;
   var interval;
   var isPaused = true;
   var isStart = true;
-  var tomatoNum = 1;
+  var tomatoComp = 0;
   var isTomato = true;
   
   $('#tomato-duration').on('change', function(e) {
@@ -21,6 +22,10 @@ $(document).ready(function() {
 
   $('#break-duration').on('change', function(e) {
     breakTime = $(this).val();
+  });
+
+  $('#long-break-duration').on('change', function(e) {
+    longBreakTime = $(this).val();
   });
 
   $('#tomato-set').on('change', function(e) {
@@ -62,7 +67,10 @@ $(document).ready(function() {
       
       if (mins < 0) {
         clearInterval(interval);
-        mins = isTomato ? breakTime : tomatoTime;
+        tomatoComp = isTomato ? tomatoComp+1 : tomatoComp;
+        mins = isTomato ? 
+               (tomatoComp == tomatoSet ? longBreakTime : breakTime) :
+               tomatoTime;
         secs = 0;
         pausedSecs = 0;
         isTomato = !isTomato;
@@ -82,6 +90,7 @@ $(document).ready(function() {
     }
     $('#tomato-duration option[value="25"]').prop('selected', true)
     $('#break-duration option[value="5"]').prop('selected', true)
+    $('#long-break-duration option[value="30"]').prop('selected', true)
     $('#tomato-set option[value="4"]').prop('selected', true)
   }
 

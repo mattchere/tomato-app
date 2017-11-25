@@ -1,6 +1,6 @@
 $(document).ready(function() {
   var mins = 25;
-  var pausedSecs = 0;
+  var pausedSecs = 59;
   var tomatoTime = 25;
   var breakTime = 5;
   var longBreakTime = 30;

@@ -10,7 +10,7 @@ router.register(r'users', views.UserViewSet)
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^tracker/$', views.tracker, name='tracker'),
+    url(r'^timer/$', views.timer, name='timer'),
     url(r'^countdown/$', views.countdown, name='countdown'),
     url(r'^profile/$', views.profile, name='profile'),
     url(r'^api/v1/', include(router.urls)),

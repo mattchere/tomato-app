@@ -16,8 +16,8 @@ def index(request):
     return render(request, 'index.html')
 
 @login_required
-def tracker(request):
-    return render(request, 'tracker/tracker.html')
+def timer(request):
+    return render(request, 'tracker/timer.html')
 
 @login_required
 def countdown(request):

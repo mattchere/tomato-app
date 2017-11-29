@@ -17,7 +17,29 @@
   </head>
   <body>
 
+    <div class="pos-f-t">
+      <nav class="navbar">
+        <button class="sidenav-toggler" onclick="openNav()">&#9776;</button>
+      </nav>
+    </div>
+
+    <div id="sidenav" class="sidenav">
+      <a href="#" class="closebtn" onclick="closeNav()">&#9776;</a>
+      <a href="#">Timer</a>
+      <a href="#">Profile</a>
+      <a href="#">Countdown</a>
+      <div class="sidenav-content">
+        {% block sidenav %}{% endblock %}
+      </div>
+    </div>
+
+    
     {% block content %}{% endblock %}
+        
+
+    <!-- Custom JavaScript -->
+    {% load static %}
+    <script src="{% static 'js/sidebar.js' %}"></script>
 
   </body>
 </html>

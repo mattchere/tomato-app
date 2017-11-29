@@ -1,4 +1,46 @@
 /* Base template styling */
-.navbar {
-  background-color: grey;
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #CC293A;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 25px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  margin-top: none;
+  padding-top: 0;
+  font-size: 36px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 10px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.sidenav-toggler {
+  font-size: 36px;
+  cursor: pointer;
+}
+
+.sidenav-content {
+  border: 2px solid black;
+  padding-left: 8px;
 }

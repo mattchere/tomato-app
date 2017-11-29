@@ -51,6 +51,6 @@ font-size: 30px;
   user-select: none;
 }
 
-.setting, h3 {
+.setting {
   display: inline-block;
 }

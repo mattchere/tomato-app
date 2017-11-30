@@ -25,9 +25,9 @@
 
     <div id="sidenav" class="sidenav">
       <a href="#" class="closebtn" onclick="closeNav()">&#9776;</a>
-      <a href="#">Timer</a>
-      <a href="#">Profile</a>
-      <a href="#">Countdown</a>
+      <a href="{% url 'timer' %}">Timer</a>
+      <a href="{% url 'profile' %}">Profile</a>
+      <a href="{% url 'countdown' %}">Countdown</a>
       <div class="sidenav-content">
         {% block sidenav %}{% endblock %}
       </div>

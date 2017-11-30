@@ -1,4 +1,8 @@
 /* Base template styling */
+body {
+  font-family: "Lato", sans-serif;
+}
+
 .sidenav {
   height: 100%;
   width: 0;
@@ -28,11 +32,6 @@
   margin-top: none;
   padding-top: 0;
   font-size: 36px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 10px;}
-  .sidenav a {font-size: 18px;}
 }
 
 .sidenav-toggler {

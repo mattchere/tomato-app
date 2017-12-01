@@ -1,9 +1,24 @@
 .countdown-list {
   border: 2px solid black;
-  margin: 20px auto;
-  width: 50%;
 }
 
 .countdown-item {
-  padding: 1%;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 20px;
+}
+
+.countdown-title,
+.countdown-due {
+  border: 2px solid black;
+  display: inline-block;
+}
+
+.countdown-title {
+
+}
+
+.btn-custom {
+  margin-top: 20px;
 }

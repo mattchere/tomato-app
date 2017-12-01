@@ -1,7 +1,10 @@
+var countdowns = [];
+
 $.get(
   '/api/v1/countdowns/',
   function(data) {
-    data.forEach(function(countdown) {
+    countdowns = data;
+    data.forEach(function(countdown, i) {
       var splitDate = countdown.due.split('-');
       var dateDue = new Date(
         splitDate[0], 
@@ -9,11 +12,15 @@ $.get(
         splitDate[2]
       );
       $('.countdown-list').append(
-        '<li class="countdown-item">' +
-        countdown.title +
-        ' ' +
-        daysUntil(dateDue) +
-        '</li>'
+        `<li class="countdown-item">
+          <div class="countdown-title">
+            ${countdown.title}
+          </div>
+          <div class="countdown-due">
+            ${daysUntil(dateDue)}
+          </div>
+          <button class="btn btn-primary delBtn" id="delBtn${i}">Delete</button>
+        </li>`
       )
     })
   }
@@ -34,6 +41,23 @@ $('#add-countdown').submit(function(e) {
     }
   });
 
+})
+
+$('.countdown-list').on('click', 'button', function(e) {
+
+  e.preventDefault();
+
+  var id = parseInt(e.target.id.slice(-1));
+
+  setCSRFToken();
+
+  $.ajax({
+    url: countdowns[id].url,
+    type: 'DELETE',
+    success: function(data) {
+      location.reload();
+    }
+  })
 })
 
 

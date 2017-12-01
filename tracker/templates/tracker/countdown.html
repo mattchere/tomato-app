@@ -2,39 +2,41 @@
 
 {% block content %}
 
-  <ul class="countdown-list">
+  <div class="container">
+    <ul class="countdown-list">
+      
+    </ul>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-custom" data-toggle="modal" data-target="#addModal">
+      Add
+    </button>
     
-  </ul>
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
-    Add
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addModalLabel">Add a new countdown item</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form action="/api/v1/countdowns/" method="post" id="add-countdown">
-              <div class="form-group">
-                <label for="title" class="col-form-label">Title:</label>
-                <input type="text" class="form-control" id="title" name="title">
+    <!-- Modal -->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addModalLabel">Add a new countdown item</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="/api/v1/countdowns/" method="post" id="add-countdown">
+                <div class="form-group">
+                  <label for="title" class="col-form-label">Title:</label>
+                  <input type="text" class="form-control" id="title" name="title">
+                </div>
+                <div class="form-group">
+                  <label for="due" class="col-form-label">Due:</label>
+                  <input type="date" class="form-control" id="due" name="due">
+                </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
               </div>
-              <div class="form-group">
-                <label for="due" class="col-form-label">Due:</label>
-                <input type="date" class="form-control" id="due" name="due">
-              </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Save changes</button>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>

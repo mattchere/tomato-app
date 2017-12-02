@@ -10,6 +10,7 @@ router.register(r'users', views.UserViewSet)
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^accounts/signup', views.signup, name='signup'),
     url(r'^timer/$', views.timer, name='timer'),
     url(r'^countdown/$', views.countdown, name='countdown'),
     url(r'^profile/$', views.profile, name='profile'),

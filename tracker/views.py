@@ -1,11 +1,12 @@
 from tracker.models import Countdown, Tomato
 from tracker.serializers import CountdownSerializer, TomatoSerializer, UserSerializer
 from tracker.permissions import IsUser, IsUserAccount
+from tracker.forms import SignUpForm
 from django.urls import reverse
 from django.shortcuts import render, redirect
+from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import get_object_or_404
 from rest_framework import permissions, viewsets, mixins
 from rest_framework.response import Response
 
@@ -14,6 +15,20 @@ def index(request):
     if request.user.is_authenticated:
         return redirect(reverse('timer'))
     return render(request, 'index.html')
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('index')
+    else:
+        form = SignUpForm()
+    return render(request, 'registration/signup.html', { 'form': form })
 
 @login_required
 def timer(request):

@@ -14,25 +14,38 @@
     {% endif %}
   {% endif %}
 
-  <form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
+  <main class="accounts-container">
+    
+    <div class="signup-container">
 
-    <div>
-      <td>{{ form.username.label_tag }}</td>
-      <td>{{ form.username }}</td>
+      <h2>Login</h2>
+
+      <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+  
+        <ul>
+          {% for field in form %}
+            <li>
+              <p>{{ field.label_tag }}</p>
+              {{ field }}
+              {% for error in field.errors %}
+                <p>{{ error }}</p>
+              {% endfor %}
+            </li>
+          {% endfor %}
+        </ul>
+        
+  
+        <div>
+          <input class="btn btn-primary" type="submit" value="Login" />
+          <input type="hidden" name="next" value="{{next}}" />
+        </div>
+  
+      </form>
+  
+      <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
     </div>
-    <div>
-      <td>{{ form.password.label_tag }}</td>
-      <td>{{ form.password }}</td>
-    </div>
 
-    <div>
-      <input type="submit" value="login" />
-      <input type="hidden" name="next" value="{{next}}" />
-    </div>
-
-  </form>
-
-  <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+  </main>
 
 {% endblock %}

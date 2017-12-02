@@ -9,7 +9,6 @@
   var isTomato = true;
   var isStart = true;
   var compTomatoes = 0;
-  var audio = new Audio('solemn.mp3')
 
   var interval$ = Rx.Observable
     .interval(100)
@@ -83,7 +82,7 @@
   }
 
   function completeTimer() {
-    audio.play();
+    $('#audio').get(0).play();
     if (isTomato) {
       compTomatoes++;
       postTomato(getTomatoData());

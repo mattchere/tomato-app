@@ -23,16 +23,18 @@
 
 {% block content %}
 
+  {% load static %}
+  <audio src="{% static 'js/solemn.wav' %}" id="audio">
+  </audio>  
   
-  
-    <section class="main">
-      <heading class="header">
-        <h3 class="heading">Click to start the timer</h3>
-      </heading>
-      <div class="timer">
-          <p class="no-select">25:00</p>
-      </div>
-    </section>
+  <section class="main">
+    <heading class="header">
+      <h3 class="heading">Click to start the timer</h3>
+    </heading>
+    <div class="timer">
+        <p class="no-select">25:00</p>
+    </div>
+  </section>
       
 
   

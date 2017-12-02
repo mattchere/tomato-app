@@ -12,6 +12,11 @@ var isStart = true;
 var tomatoComp = 0;
 var isTomato = true;
 
+$('.timer').click(function() {
+  var text = isTomato ? 'Tomato Time!' : 'Break Time!';
+  $('.heading').text(text);
+})
+
 $('#tomato-duration').on('change', function(e) {
   tomatoTime = $(this).val();
   if (isStart) {

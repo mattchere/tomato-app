@@ -16,7 +16,7 @@
     </div>
     <div class="settings-group">
       <h3 class="settings-label">Tomato Set</h3>
-      <select class="setting" id="tomato-set"></select>
+      <select class="setting" id="long-delay"></select>
     </div>
   </div>
 {% endblock %}
@@ -26,6 +26,9 @@
   
   
     <section class="main">
+      <heading class="header">
+        <h3 class="heading">Click to start the timer</h3>
+      </heading>
       <div class="timer">
           <p class="no-select">25:00</p>
       </div>
@@ -44,6 +47,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.5.2/Rx.js"></script>
 
   {% load static %}
-  <script src="{% static 'js/timer.js' %}"></script>
+  <script src="{% static 'js/timer-opt.js' %}"></script>
 
 {% endblock %}

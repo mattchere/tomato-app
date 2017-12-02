@@ -12,7 +12,7 @@ from rest_framework.response import Response
 
 def index(request):
     if request.user.is_authenticated:
-        return redirect(reverse('tracker'))
+        return redirect(reverse('timer'))
     return render(request, 'index.html')
 
 @login_required

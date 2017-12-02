@@ -12,31 +12,41 @@ body {
   left: 0;
   background-color: #CC293A;
   overflow-x: hidden;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
-.sidenav a {
+.sidenav .link {
   padding: 8px 8px 8px 25px;
   text-decoration: none;
   font-size: 25px;
   color: #818181;
   display: block;
-  transition: 0.3s;
 }
 
-.sidenav a:hover {
+.sidenav .link:hover {
   color: #f1f1f1;
 }
 
-.sidenav .closebtn {
-  margin-top: none;
-  padding-top: 0;
-  font-size: 36px;
+.show-side {
+  /* border-right: 2px solid black; */
+  box-shadow: 1px 0 5px 1px black;
+  width: 250px;
+}
+
+.nav {
+  background-color: white;
+  border-bottom: 2px solid black;
+  height: 50px;
+  padding: 5px 0 0 5px;
 }
 
 .sidenav-toggler {
   font-size: 36px;
   cursor: pointer;
+}
+
+.sidenav-toggler:hover {
+  text-decoration: none;
 }
 
 .sidenav-content {

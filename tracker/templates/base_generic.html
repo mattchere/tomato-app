@@ -17,17 +17,17 @@
   </head>
   <body>
 
-    <div class="pos-f-t">
-      <nav class="navbar">
-        <button class="sidenav-toggler" onclick="openNav()">&#9776;</button>
-      </nav>
-    </div>
+    <nav class="nav">
+      <a class="sidenav-toggler" href="#" onclick="openNav()">&#9776;</a>
+    </nav>
 
     <div id="sidenav" class="sidenav">
-      <a href="#" class="closebtn" onclick="closeNav()">&#9776;</a>
-      <a href="{% url 'timer' %}">Timer</a>
-      <a href="{% url 'profile' %}">Profile</a>
-      <a href="{% url 'countdown' %}">Countdown</a>
+      <div class="nav">
+        <a href="#" class="sidenav-toggler" onclick="closeNav()">&#9776;</a>
+      </div>
+      <a href="{% url 'timer' %}" class="link">Timer</a>
+      <a href="{% url 'profile' %}" class="link">Profile</a>
+      <a href="{% url 'countdown' %}" class="link">Countdown</a>
       <div class="sidenav-content">
         {% block sidenav %}{% endblock %}
       </div>

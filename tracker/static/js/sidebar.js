@@ -1,8 +1,8 @@
 function openNav() {
-    document.getElementById('sidenav').style.width = "250px";
+    $('#sidenav').addClass('show-side');
     return false;
 }
 function closeNav() {
-    document.getElementById('sidenav').style.width = "0";
+    $('#sidenav').removeClass('show-side');    
     return false;
 }

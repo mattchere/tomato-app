@@ -9,6 +9,7 @@
   var isTomato = true;
   var isStart = true;
   var compTomatoes = 0;
+  var todayTomatoes = 0;
 
   var interval$ = Rx.Observable
     .interval(100)
@@ -25,8 +26,6 @@
 
   var playSubscription = play$
     .subscribe(function(val) {
-      var text = isTomato ? 'Tomato Time!' : 'Break Time!';
-      $('.heading').text(text);
       if (isStart) {
         isStart = false;
         currDuration = tomatoTime;
@@ -57,8 +56,13 @@
   $('#long-delay').on('change', function(e) {
     longDelay = $(this).val();
   });
-  
+
+
+  getTodayCount();
+
   function runTimer() {
+    var text = isTomato ? 'Tomato' : 'Break';
+    $('#current').text(text);
     showTime();
     decTimer();
   }
@@ -93,6 +97,32 @@
            (compTomatoes % longDelay === 0 ? longBreakTime-1 : breakTime-1);
     secs = 59;
     currDuration = mins;
+  }
+
+  function displayInfoText() {
+    var longTomatoes = longDelay - (compTomatoes % longDelay);
+    $('#today-tomatoes').text(todayTomatoes);
+    $('#comp-tomatoes').text(compTomatoes);
+    $('#long-tomatoes').text(longTomatoes);
+  }
+
+  function getTodayCount() {
+    var today = [
+      new Date().getFullYear(),
+      new Date().getMonth()+1,
+      new Date().getDate()
+    ]
+    $.get('/api/v1/tomatoes/', function(data) {
+      todayTomatoes = data.filter(function(tomato) {
+        var date = tomato.completed
+          .split('T')[0]
+          .split('-')
+          .map(function(x) { return parseInt(x) })
+        
+        return date[0] === today[0] && date[1] === today[1] && date[2] === today[2];
+      }).length;
+      displayInfoText();
+    })
   }
   
   function addTimeOptions() {
@@ -130,6 +160,7 @@
       type: 'POST',
       url: '/api/v1/tomatoes/', 
       data: tomato,
+      success: getTodayCount
     });
   }
   

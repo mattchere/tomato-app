@@ -27,14 +27,19 @@
   <audio src="{% static 'js/solemn.wav' %}" id="audio">
   </audio>  
   
-  <section class="main">
+  <div class="main">
     <heading class="header">
-      <h3 class="heading">Click to start the timer</h3>
+      <h2>Currently: <span id="current">None</span></h2>
     </heading>
     <div class="timer">
         <p class="no-select">25:00</p>
     </div>
-  </section>
+    <div class="info">
+      <p>You are on Tomato #<span id="comp-tomatoes"></span></p>
+      <p>Tomatoes Until Long Break: <span id="long-tomatoes"></span></p>
+      <p>Tomatoes Completed Today: <span id="today-tomatoes"></span></p>
+    </div>
+  </div>
       
 
   

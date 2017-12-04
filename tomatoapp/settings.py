@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '5t0gv)h46@t$b=v4zdyf(t^p$+4qqc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
-ALLOWED_HOSTS = ['tomato-app.heroku.com', '127.0.0.1',]
+ALLOWED_HOSTS = ['tomato-app.herokuapp.com', '127.0.0.1',]
 
 
 # Application definition

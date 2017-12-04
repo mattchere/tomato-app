@@ -134,7 +134,7 @@
     $('#tomato-duration option[value="25"]').prop('selected', true)
     $('#break-duration option[value="5"]').prop('selected', true)
     $('#long-break-duration option[value="30"]').prop('selected', true)
-    $('#tomato-set option[value="4"]').prop('selected', true)
+    $('#long-delay option[value="4"]').prop('selected', true)
   }
   
   addTimeOptions();

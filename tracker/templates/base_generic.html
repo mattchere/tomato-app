@@ -25,7 +25,7 @@
       <div class="reg-info">
         {% if user.is_authenticated %}
           <p class="curr-user-text">Logged in as: {{ user.username }}</p>
-          <a class="reg-link" href="{% url 'logout' %}">Logout</a>
+          <a class="reg-link" href="{% url 'logout' %}?next=/">Logout</a>
         {% else %}
           <a class="reg-link" href="{% url 'login' %}">Login</a><!--
           --><a class="reg-link" id="register" href="{% url 'signup' %}">Register</a>

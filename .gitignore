@@ -101,7 +101,7 @@ ENV/
 .mypy_cache/
 
 # Django project settings
-settings.py
+dev_settings/settings.py
 
 # Editor workspace settings
 .vscode/

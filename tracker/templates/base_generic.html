@@ -17,13 +17,26 @@
   </head>
   <body>
 
-    <nav class="nav">
-      <a class="sidenav-toggler" href="#" onclick="openNav()">&#9776;</a>
+    <nav class="nav-bar clearfix">
+      <div class="toggler-container">
+        <a class="sidenav-toggler" href="#" onclick="openNav()">&#9776;</a>
+      </div>
+      <div class="reg-info">
+        {% if user.is_authenticated %}
+          <p class="curr-user-text">Logged in as: {{ user.username }}</p>
+          <a class="reg-link" href="{% url 'logout' %}">Logout</a>
+        {% else %}
+          <a class="reg-link" href="{% url 'login' %}">Login</a><!--
+          --><a class="reg-link" id="register" href="{% url 'signup' %}">Register</a>
+        {% endif %}
+      </div>
     </nav>
 
     <div id="sidenav" class="sidenav">
-      <div class="nav">
-        <a href="#" class="sidenav-toggler" onclick="closeNav()">&#9776;</a>
+      <div class="nav-bar">
+        <div class="toggler-container">
+          <a href="#" class="sidenav-toggler" onclick="closeNav()">&#9776;</a>
+        </div>
       </div>
       <a href="{% url 'timer' %}" class="link">Timer</a>
       <a href="{% url 'profile' %}" class="link">Profile</a>

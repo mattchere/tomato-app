@@ -13,13 +13,17 @@ $.get(
       );
       $('.countdown-list').append(
         `<li class="countdown-item">
-          <div class="countdown-title">
-            ${countdown.title}
+          <div class="row">
+            <div class="countdown-title col-6">
+              ${countdown.title}
+            </div>
+            <div class="countdown-due col-3">
+              ${daysUntil(dateDue)}
+            </div>
+            <div class="col-2">
+              <button class="btn btn-primary" id="delBtn${i}">Delete</button>
+            </div>
           </div>
-          <div class="countdown-due">
-            ${daysUntil(dateDue)}
-          </div>
-          <button class="btn btn-primary delBtn" id="delBtn${i}">Delete</button>
         </li>`
       )
     })
@@ -67,7 +71,11 @@ function daysUntil(date) {
     new Date().getMonth(),
     new Date().getDate()
   )
-  return Math.floor((date-today) / (1000*60*60*24));
+  var days = Math.floor((date-today) / (1000*60*60*24));
+  if (days === 1) {
+    return days + '<span class="countdown-text">day</span>';
+  }
+  return days + '<span class="countdown-text">days</span>';
 }
 
 

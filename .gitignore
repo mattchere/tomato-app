@@ -108,3 +108,6 @@ settings.py
 
 # Database
 *.sqlite3
+
+# Text backup files
+*.bak

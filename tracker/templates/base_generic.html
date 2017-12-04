@@ -19,7 +19,7 @@
 
     <nav class="nav-bar clearfix">
       <div class="toggler-container">
-        <a class="sidenav-toggler" href="#" onclick="openNav()">&#9776;</a>
+        <a class="sidenav-toggler" href="#" onclick="openNav()" role="button">&#9776;</a>
       </div>
       <div class="reg-info">
         {% if user.is_authenticated %}
@@ -35,7 +35,7 @@
     <div id="sidenav" class="sidenav">
       <div class="nav-bar">
         <div class="toggler-container">
-          <a href="#" class="sidenav-toggler" onclick="closeNav()">&#9776;</a>
+          <a href="#" class="sidenav-toggler" onclick="closeNav()" role="button">&#9776;</a>
         </div>
       </div>
       <a href="{% url 'timer' %}" class="link">Timer</a>

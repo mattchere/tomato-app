@@ -61,7 +61,7 @@
   getTodayCount();
 
   function runTimer() {
-    var text = isTomato ? 'Tomato' : 'Break';
+    var text = isTomato ? `Tomato #${compTomatoes+1}` : `Break #${compTomatoes+1}`;
     $('#current').text(text);
     showTime();
     decTimer();
@@ -102,7 +102,6 @@
   function displayInfoText() {
     var longTomatoes = longDelay - (compTomatoes % longDelay);
     $('#today-tomatoes').text(todayTomatoes);
-    $('#comp-tomatoes').text(compTomatoes);
     $('#long-tomatoes').text(longTomatoes);
   }
 

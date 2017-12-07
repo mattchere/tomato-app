@@ -61,7 +61,7 @@
   getTodayCount();
 
   function runTimer() {
-    var text = isTomato ? `Tomato #${compTomatoes+1}` : `Break #${compTomatoes+1}`;
+    var text = isTomato ? `Tomato #${compTomatoes+1}` : `Break #${compTomatoes}`;
     $('#current').text(text);
     showTime();
     decTimer();

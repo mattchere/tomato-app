@@ -44,6 +44,13 @@ $('#next').click(function() {
   switchDatesTo(month, year);
 });
 
+function showMonthlyGoal() {
+  var currAmount = counts.reduce((a, b) => a+b);
+  var monthlyGoal = Math.ceil(50 / 7 * counts.length);
+  console.log(counts.length);
+  $('#month-goal').text(`${currAmount}/${monthlyGoal}`);
+}
+
 function switchDatesTo(month, year) {
   $('.date-month').text(months[month]);
   $('.date-year').text(year);
@@ -141,5 +148,6 @@ function addTomatoCounts() {
     for (var i=0; i<dates.length; i++) {
       addCount(...dates[i], counts[i]);
     }
+    showMonthlyGoal();
   });
 }
